@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #202535;
+    background-image: url("https://www.pngkey.com/png/full/50-503130_nodes-1427176-bitcoin-nodes-png.png");
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    position: relative;
+    min-height: 20vh;
+    width: 100%;
+    background-color: #202535;
+    background-image: url("https://i.pinimg.com/originals/ba/b1/cb/bab1cbe3a44a9abd7c9364f77afbec41.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: 0px 2px 30px 0px #39585d;
+    box-shadow: 0px 2px 30px 0px #39585d;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+}
+
+ul{
+    list-style-type: none;
+}
+li{
+    display: inline;
+    margin-right: 1rem;
+    background-color: transparent;
+}
+li a{
+    display: inline;
+    padding: 20px 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Roboto Mono', monospace;
+    color:rgb(179, 182, 182);
+}
+
+li a:hover{
+    border-bottom: solid;
+    border-color:#04AA6D;
+    border-width: 5px;
+    color:#04AA6D;
+}
+
+.mainContainer {
+    display: flex;
+    width: 100%;
+    height: 85vh;
+    /* insert shadow */
+    -webkit-box-shadow: 0px 2px 30px 0px #39585d;
+    box-shadow: 0px 2px 30px 0px #39585d;
+    background-color: rgba(32, 37, 53, .8)
+}
+
+.description {
+    width: 50%;
+    color:azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    position: relative;
+}
+
+.description h1 {
+    width: 80%;
+    font-family: 'Space Mono', monospace;
+    /* font-size: 2rem; */
+    letter-spacing: 1px;
+    line-height: 2.5rem;
+    margin:  20px auto 10px auto;
+}
+
+.description p {
+    width: 80%;
+    font-family: 'Roboto Mono', monospace;
+    text-align: justify;
+    margin: 10px auto;
+}
+
+.operaciones {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.card {
+    padding-left: 2rem;
+}
+
+.selection{
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+input, .button{
+    display: inline-block;
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+}
+
+
+textarea{
+    width: 80%;
+
+}
+
+@media (max-width: 700px){
+    body{
+        background-color: rgb(255, 255, 255);
+    }
+    .mainContainer{
+        flex-direction: column;
+        height: auto;
+    }
+    .description, .operaciones{
+        width: 100%;
+    }
+    .selection{
+        flex-direction: column;
+        height: 150px;
+    }
+    li{
+        display: block;
+    }
+    li a{
+        display: block;
+        padding: 3px;
+    }
+
+    .title{
+        min-height: 30vh;
+        background-size: 200px;
+        background-position: right bottom;
+    }
+
+    .operaciones{
+        text-align: center;
+    }
+
+    .card{
+        padding: 0;
+    }
+
+    textarea{
+       margin: 20px;
+    }
+    
+}

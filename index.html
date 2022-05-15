@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Space+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <title>🖥️ Compiladores</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <div class="title">
+                <!-- the image is right here -->
+                <ul>
+                    <li><a class="opcion1" href="#">Lenguajes</a> </li>
+                    <li><a class="opcion2" href="#">Analisis Léxico</a></li>
+                    <li><a class="opcion3" href="#">Palabras reservadas</a></li>
+                    <li><a class="opcion4" href="#">Compilador</a></li>
+                </ul>
+            </div>
+            <div class="mainContainer">
+                <div class="description">
+                    <h1>Analiza tu codigo y <span style="color:#4ec1ff">comprende</span> como identificar los <span
+                            style="padding-right:10px;border-right:solid; border-color:#04AA6D; border-width: 5px;">elementos</span>
+                        correspondientes de <span style="color:#4ec1ff">cada lenguaje</span>.
+                    </h1>
+                    <p>
+                        Selecciona el archivo de tu preferencia y comprende las caracteristicas
+                        del codigo observando el comportamiento de caracteres, palabras reservadas,
+                        entre otros elementos relevantes.
+                    </p>
+                    <div class="selection">
+                        <input type="file" id="cargar">
+                        <button class="button">Clear</button>
+                    </div>
+
+
+                </div>
+                <div class="operaciones">
+
+                    <div class="card">
+                        <textarea name="codigoFuente" id="codigoFuenteId" cols="60" rows="8"></textarea><br>
+                        <!-- <input type="file" id="cargar"> -->
+                    </div>
+
+                    <div class="card">
+                        <textarea name="analisisLexico" id="analisisLexicoId" cols="60" rows="8"></textarea><br>
+                        <!-- <input type="file" id="cargar"> -->
+                    </div>
+
+                    <div class="card">
+                        <textarea name="palabrasReservadas" id="palabrasReservadas" cols="60" rows="8"></textarea><br>
+                        <!-- <input type="file" id="cargar"> -->
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+    <script>
+        function Cargar(evento) {
+            if (evento.target.files[0]) {
+                let leer = new FileReader();
+                leer.onload = function (e) {
+
+                    //toma el archivo de texto y lo imprime en id codigoFuenteId
+                    document.getElementById("codigoFuenteId").value = e.target.result;
+                    //fin de inserción de archivo.
+
+                    // toma el texto y lo transforma en una sola linea
+                    let strOneLine = document.querySelector("#codigoFuenteId").value;
+                    strOneLine = strOneLine.replace(/\r?\n|\r/g, " ");
+                    // fin de la conversion
+
+                    //realiza la separacion de las palabras y caracteres definidos
+                    //y lo convierte en arreglo
+                    let result = strOneLine.split(/([\s\[\];\(\).\{\}\"])/);
+                    //fin de separacion
+
+                    //remueve los espacios en blanco remanentes en el arreglo
+                    result = result.filter(function (e) { return e.trim() != ''; })
+                    //fin de remover espacios en blanco
+                    
+                    //agrega cada elemento del arreglo a textarea on id analisisLexicoId
+                    result.forEach(element => {
+                        document.querySelector("#analisisLexicoId").value += element+"\n";//console.log(element);
+                    });
+                    //en este punto queda lista la separación por renglones
+
+                }
+                leer.readAsText(evento.target.files[0]);
+            } else {
+                document.getElementById("codigoFuenteId").value = "error no se pudo leer";
+            }
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById("cargar").addEventListener('change', Cargar);
+        });
+
+        //boton de limpiar
+        let boton = document.querySelector(".button");
+        boton.addEventListener("click", function () {
+            let textInfo = document.querySelectorAll("textarea, input");
+            textInfo.forEach(element => {
+                element.value = ""; 
+            });
+        });
+        //fin de boton de limpiar
+
+    </script>
+</body>
+</html>
