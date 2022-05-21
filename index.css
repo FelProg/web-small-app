@@ -140,7 +140,7 @@ textarea{
 
 @media (max-width: 700px){
     body{
-        background-color: rgb(255, 255, 255);
+        background-color:#202535;
     }
     .mainContainer{
         flex-direction: column;
