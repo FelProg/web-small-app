@@ -83,7 +83,7 @@
 
                     //realiza la separacion de las palabras y caracteres definidos
                     //y lo convierte en arreglo
-                    let result = strOneLine.split(/([\s\[\];\(\).\{\}\"])/);
+                    let result = strOneLine.split(/([\s\[\];,\(\).\{\}\"\'])/);
                     //fin de separacion
 
                     //remueve los espacios en blanco remanentes en el arreglo
@@ -95,6 +95,8 @@
                         document.querySelector("#analisisLexicoId").value += element+"\n";//console.log(element);
                     });
                     //en este punto queda lista la separación por renglones
+
+                    
 
                 }
                 leer.readAsText(evento.target.files[0]);
